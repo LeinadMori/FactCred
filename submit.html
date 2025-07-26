@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Claim - FactCred</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">FactCred</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="submit.html" class="active">Submit Claim</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h1>Submit a New Claim</h1>
+    <form class="claim-form">
+      <label for="claim-text">Claim:</label>
+      <textarea id="claim-text" rows="4" required></textarea>
+
+      <label for="source">Source URL (optional):</label>
+      <input type="url" id="source" />
+
+      <label for="category">Category:</label>
+      <select id="category">
+        <option>Politics</option>
+        <option>Health</option>
+        <option>Technology</option>
+        <option>Education</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+</body>
+</html>
