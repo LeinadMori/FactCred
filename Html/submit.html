@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - ClaimCheck</title>
+  <link rel="stylesheet" href="/Styles/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="/images/icon.png" alt="FactCred Logo" />
+        <h4>FactCred</h4>
+      </div>
+      <nav>
+        <ul>
+          <li><i class="fas fa-landmark"></i> Politics</li>
+          <li><i class="fas fa-heartbeat"></i> Health</li>
+          <li><i class="fas fa-microchip"></i> Technology</li>
+          <li><i class="fas fa-graduation-cap"></i> Education</li>
+          <li><i class="fas fa-futbol"></i> Sports</li>
+  
+          <div class="claim" data-category="Politics"></div>
+          <div class="claim" data-category="Health"></div>
+          <div class="claim" data-category="Technology"></div>
+          <div class="claim" data-category="Education"></div>
+          <div class="claim" data-category="Sports"></div>
+  
+          <li>🏠 Dashboard</li>
+          <li>📊 Stats</li>
+          <li>➕ Add Claim</li>
+          <li><a href="./login.html">👤 Account / Login</a></li>
+          <li class="settings-dropdown">
+            <button class="dropdown-btn">⚙️ Settings</button>
+            <div class="dropdown-content">
+              <label>🌗 Theme:
+                <select id="theme-select">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </label>
+      
+              <label>🔠 Font Size:
+                <select id="font-size-select">
+                  <option value="16px">Default</option>
+                  <option value="18px">Large</option>
+                  <option value="20px">Extra Large</option>
+                </select>
+              </label>
+      
+              <label>🎨 Color Theme:
+                <input type="color" id="theme-color" value="#4CAF50" />
+              </label>
+      
+              <label>🌍 Language:
+                <select id="language-select">
+                  <option value="en">English</option>
+                  <option value="fr">Français</option>
+                  <option value="es">Español</option>
+                </select>
+              </label>
+            </div>
+          </li>
+        </ul>
+      </nav>      
+    </aside>
+    <!-- Header with Navigation -->
+    <main class="main">
+      <section class="left-panel">
+        <div class="search-section">
+          <div class="search-bar">
+            <input type="text" id="search" placeholder="Search claims..." />
+          </div>
+          <div class="filter-buttons">
+            <h3>Filters</h3>
+            <button>All</button>
+            <button class="true">True</button>
+            <button class="false">False</button>
+            <button class="partial">Partially True</button>
+          </div>
+        </div>
+      </section>
+      
+      <section class="middle-panel">
+        <header class="main-header">
+          <div class="logo">
+            <img src="/images/icon.png" alt="FactCred Logo" class="logo-img">
+            <span>FactCred</span>
+          </div>
+          <nav>
+            <a href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+            <a href="submit.html"><i class="fas fa-plus-circle"></i> Submit Claim</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a>
+          </nav>
+        </header>
+        <div class="claim-card false">
+          <h4>Submit a New Claim</h4>
+              <form class="claim-form">
+                <label for="claim-text">Claim:</label>
+                <textarea id="claim-text" rows="4" required></textarea>
+          
+                <label for="source">Source URL (optional):</label>
+                <input type="url" id="source" />
+              </div>
+            </section>
+          
+              <section class="right-panel">
+                <h3>Treanding Gist</h3>
+                <div id="claim-details">
+                  <div class="claim-preview">
+                    <h4 id="claim-title">Breaking Stories</h4>
+            </main>
+          
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+     const dropdownBtn = document.querySelector('.dropdown-btn');
+     const dropdownContent = document.querySelector('.dropdown-content');
+ 
+     dropdownBtn.addEventListener('click', function (e) {
+       e.stopPropagation(); // Prevent closing when clicking the button again
+       dropdownContent.style.display =
+         dropdownContent.style.display === 'block' ? 'none' : 'block';
+     });
+ 
+     // Close dropdown when clicking outside
+     document.addEventListener('click', function () {
+       dropdownContent.style.display = 'none';
+     });
+   });
+ </script>
+  
+</body>
+</html>
