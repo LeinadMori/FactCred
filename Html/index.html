@@ -1,82 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FactCred - Claim Verification Dashboard</title>
-  <link rel="stylesheet" href="/Styles/index.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FactCred</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="icon" href="/images/icon.png" type="image/png" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/Styles/dashboard.css" />
 </head>
-
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="logo">FactCred</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#submit">Submit Claim</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="./dashboard.html">Dashboard</a>
-    </nav>
-  </header>
-
-  <!-- MAIN CONTENT LAYOUT -->
-  <main class="container">
-    <!-- LEFT SIDEBAR -->
+  <div class="dashboard">
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <h3>Categories</h3>
-      <ul>
-        <li>Politics</li>
-        <li>Health</li>
-        <li>Technology</li>
-        <li>Education</li>
-      </ul>
-      <h3>Trending</h3>
-      <ul>
-        <li>5G Causes COVID?</li>
-        <li>Election Rigging Claims</li>
-        <li>Fake Celebrity Endorsements</li>
-      </ul>
+      <div class="logo">
+        <img src="/images/icon.png" alt="FactCred Logo" />
+        <h4>FactCred</h4>
+      </div>
+      <nav>
+        <ul>
+          <li><i class="fas fa-landmark"></i> Politics</li>
+          <li><i class="fas fa-heartbeat"></i> Health</li>
+          <li><i class="fas fa-microchip"></i> Technology</li>
+          <li><i class="fas fa-graduation-cap"></i> Education</li>
+          <li><i class="fas fa-futbol"></i> Sports</li>
+
+          <div class="claim" data-category="Politics"></div>
+          <div class="claim" data-category="Health"></div>
+          <div class="claim" data-category="Technology"></div>
+          <div class="claim" data-category="Education"></div>
+          <div class="claim" data-category="Sports"></div>
+
+          <li>🏠 Dashboard</li>
+          <li>📊 Stats</li>
+          <li>➕ Add Claim</li>
+          <a href="./login.html">👤 Account / Login</a>
+          <li class="settings-dropdown">
+            <button class="dropdown-btn">⚙️ Settings</button>
+            <div class="dropdown-content">
+              <label>🌗 Theme:
+                <select id="theme-select">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select>
+              </label>
+      
+              <label>🔠 Font Size:
+                <select id="font-size-select">
+                  <option value="16px">Default</option>
+                  <option value="18px">Large</option>
+                  <option value="20px">Extra Large</option>
+                </select>
+              </label>
+      
+              <label>🎨 Color Theme:
+                <input type="color" id="theme-color" value="#4CAF50" />
+              </label>
+      
+              <label>🌍 Language:
+                <select id="language-select">
+                  <option value="en">English</option>
+                  <option value="fr">Français</option>
+                  <option value="es">Español</option>
+                </select>
+              </label>
+            </div>
+          </li>
+        </ul>
+      </nav>      
     </aside>
 
-    <!-- MIDDLE COLUMN: CLAIMS LIST -->
-    <section class="claims">
-      <div class="search-bar">
-        <input type="text" id="search" placeholder="Search claims..." />
-        <select id="filter">
-          <option value="all">All</option>
-          <option value="true">True</option>
-          <option value="false">False</option>
-          <option value="partially">Partially True</option>
-        </select>
+    <!-- Main Columns -->
+    <main class="main">
+      <!-- Left Panel -->
+      <section class="left-panel">
+        <div class="search-section">
+          <div class="search-bar">
+            <input type="text" id="search" placeholder="Search claims..." />
+          </div>
+          <div class="filter-buttons">
+            <h3>Filters</h3>
+            <button>All</button>
+            <button class="true">True</button>
+            <button class="false">False</button>
+            <button class="partial">Partially True</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Middle Panel -->
+      <section class="middle-panel">
+        <header class="main-header">
+          <div class="logo">
+            <img src="/images/icon.png" alt="FactCred Logo" class="logo-img">
+            <span>FactCred</span>
+          </div>
+          <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="submit.html"><i class="fas fa-plus-circle"></i> Submit Claim</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+          </nav>
+        </header>
+
+        <div class="claim-card false">
+          <h4>COVID-19 vaccines cause infertility</h4>
+          <p class="verdict">❌ False</p>
+          <button class="expand-btn">See Explanation</button>
+          <div class="explanation">
+            <p>There is no scientific evidence linking COVID-19 vaccines to infertility...</p>
+            <small>Sources: WHO, CDC</small>
+          </div>
+        </div>
+
+        <div class="claim-card true">
+          <h4>The Earth orbits the Sun</h4>
+          <p class="verdict">✅ True</p>
+          <button class="expand-btn">See Explanation</button>
+          <div class="explanation">
+            <p>This is basic astronomical fact proven for centuries.</p>
+            <small>Sources: NASA, Britannica</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel -->
+      <!-- Column 3: Details/Preview -->
+<section class="right-panel">
+  <h3>Claim Details</h3>
+  <div id="claim-details">
+    <div class="claim-preview">
+      <h4 id="claim-title">"COVID-19 vaccine causes magnetism"</h4>
+
+      <p><strong>Status:</strong> <span class="status false">False</span></p>
+
+      <p><strong>Date Submitted:</strong> June 10, 2025</p>
+
+      <p><strong>Submitted by:</strong> Anonymous User</p>
+
+      <p><strong>Description:</strong> This claim suggests that people become magnetized after receiving a COVID-19 vaccine. Viral videos showed metal objects sticking to vaccinated individuals.</p>
+
+      <p><strong>Fact Check Summary:</strong> There’s no scientific evidence supporting this. Health authorities attribute the effect to skin oils or sweat, not magnetism.</p>
+
+      <p><strong>Sources:</strong></p>
+      <ul>
+        <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/facts.html" target="_blank">CDC - Vaccine Facts</a></li>
+        <li><a href="https://www.snopes.com/fact-check/vaccine-magnet/" target="_blank">Snopes</a></li>
+      </ul>
+
+      <p><strong>Tags:</strong>
+        <span class="tag">COVID-19</span>
+        <span class="tag">Vaccine</span>
+      </p>
+
+      <!-- Share and Report Buttons -->
+      <div class="actions">
+        <button title="Share Claim">🔗 Share</button>
       </div>
 
-      <div id="claimList" class="claim-list"></div>
+      <!-- Mark as Reviewed (for moderators) -->
     </section>
+    </main>
+  </div>
 
-    <!-- RIGHT COLUMN: STATS / CHARTS -->
-    <aside class="stats">
-      <h3>Weekly Stats</h3>
-      <div class="chart" id="statsChart">📊 Coming Soon...</div>
-      <div class="summary">
-        <p>Total Claims: <span id="totalClaims">0</span></p>
-        <p>True: <span id="trueClaims">0</span></p>
-        <p>False: <span id="falseClaims">0</span></p>
-        <p>Partially True: <span id="partialClaims">0</span></p>
-      </div>
-    </aside>
-  </main>
+  <!-- Footer -->
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 FactCred. All rights reserved.</p>
-    <p>
-      <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
-    </p>
-  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdownBtn = document.querySelector('.dropdown-btn');
+      const dropdownContent = document.querySelector('.dropdown-content');
+  
+      dropdownBtn.addEventListener('click', function (e) {
+        e.stopPropagation(); // Prevent closing when clicking the button again
+        dropdownContent.style.display =
+          dropdownContent.style.display === 'block' ? 'none' : 'block';
+      });
+  
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function () {
+        dropdownContent.style.display = 'none';
+      });
+    });
 
-  <script src="app.js"></script>
+
+    // Expand Explanation toggle
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const explanation = btn.nextElementSibling;
+      explanation.classList.toggle('show');
+    });
+  });
+
+  const searchInput = document.getElementById("search");
+  const filterButtons = document.querySelectorAll("[data-filter]");
+  const claimsContainer = document.getElementById("claimsContainer");
+
+  let currentFilter = "all";
+  let currentSearch = "";
+
+  function renderClaims() {
+    const allClaims = claimsContainer.querySelectorAll(".claim-card");
+
+    let hasVisible = false;
+
+    allClaims.forEach(card => {
+      const text = card.querySelector("h4").textContent.toLowerCase();
+      const status = card.classList.contains("true")
+        ? "true"
+        : card.classList.contains("false")
+        ? "false"
+        : "partial";
+
+      const matchesSearch = text.includes(currentSearch.toLowerCase());
+      const matchesFilter = currentFilter === "all" || currentFilter === status;
+
+      if (matchesSearch && matchesFilter) {
+        card.style.display = "block";
+        hasVisible = true;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    // Show "not found" message if none are visible
+    const noMatchMessageId = "no-match-msg";
+    let noMatchMessage = document.getElementById(noMatchMessageId);
+
+    if (!hasVisible) {
+      if (!noMatchMessage) {
+        noMatchMessage = document.createElement("p");
+        noMatchMessage.id = noMatchMessageId;
+        noMatchMessage.textContent = "No matching claims found.";
+        noMatchMessage.style.color = "red";
+        noMatchMessage.style.marginTop = "1rem";
+        claimsContainer.appendChild(noMatchMessage);
+      }
+    } else {
+      if (noMatchMessage) noMatchMessage.remove();
+    }
+  }
+
+  // Handle filter button clicks
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      currentFilter = button.getAttribute("data-filter");
+      renderClaims();
+    });
+  });
+
+  // Handle search input
+  searchInput.addEventListener("input", e => {
+    currentSearch = e.target.value;
+    renderClaims();
+  });
+
+  // Initial display
+  renderClaims();yyyyyyyyy
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterItems = document.querySelectorAll('.category-nav li');
+    const claims = document.querySelectorAll('.claim');
+
+    filterItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const category = item.getAttribute('data-filter');
+
+        claims.forEach(claim => {
+          const claimCategory = claim.getAttribute('data-category');
+
+          if (category === 'All' || claimCategory === category) {
+            claim.style.display = 'block';
+          } else {
+            claim.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+  </script> 
+
 </body>
-
 </html>
