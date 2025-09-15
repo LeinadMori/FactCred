@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FactCred</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Claim - FactCred</title>
+  <link rel="stylesheet" href="/Styles/dashboard.css">
+  <link rel="stylesheet" href="/Styles/add-claim.css"">
   <link rel="icon" href="/images/icon.png" type="image/png" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/Styles/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <div class="dashboard">
@@ -37,9 +31,10 @@
           <div class="claim" data-category="Education"></div>
           <div class="claim" data-category="Sports"></div>
 
-          <li><a href="user-dashboard.html">🏠 Dashboard</a></li>
-          <li><a href="stats.html">📊 Stats</a></li>
-          <li><a href="submit.html">➕ Add Claim</a></li>
+          <li>🏠 Dashboard</li>
+          <li>📊 Stats</li>
+          <a href="add-claim.html"><i class="fas fa-home"></i>Add Claim</a>
+          <li>➕ Add Claim</li>
           <a href="./login.html">👤 Account / Login</a>
           <li class="settings-dropdown">
             <button class="dropdown-btn">⚙️ Settings</button>
@@ -133,47 +128,80 @@
       <!-- Right Panel -->
       <!-- Column 3: Details/Preview -->
 <section class="right-panel">
-  <h3>Claim Details</h3>
-  <div id="claim-details">
-    <div class="claim-preview">
-      <h4 id="claim-title">"COVID-19 vaccine causes magnetism"</h4>
+  <div class="container">
+    <header>
+      <h2><i class="fas fa-plus-circle"></i> Submit a Claim</h2>
+      <p>Provide details about the claim you want to verify.</p>
+    </header>
 
-      <p><strong>Status:</strong> <span class="status false">False</span></p>
+    <form id="claimForm" class="claim-form">
+      <label for="title">Claim Title:</label>
+      <input type="text" id="title" placeholder="Enter claim title..." required>
 
-      <p><strong>Date Submitted:</strong> June 10, 2025</p>
+      <label for="category">Category:</label>
+      <select id="category" required>
+        <option value="">-- Select Category --</option>
+        <option value="politics">Politics</option>
+        <option value="health">Health</option>
+        <option value="technology">Technology</option>
+        <option value="education">Education</option>
+        <option value="sports">Sports</option>
+      </select>
 
-      <p><strong>Submitted by:</strong> Anonymous User</p>
+      <label for="description">Claim Description:</label>
+      <textarea id="description" rows="5" placeholder="Explain the claim..." required></textarea>
 
-      <p><strong>Description:</strong> This claim suggests that people become magnetized after receiving a COVID-19 vaccine. Viral videos showed metal objects sticking to vaccinated individuals.</p>
+      <label for="source">Source (optional):</label>
+      <input type="url" id="source" placeholder="https://example.com">
 
-      <p><strong>Fact Check Summary:</strong> There’s no scientific evidence supporting this. Health authorities attribute the effect to skin oils or sweat, not magnetism.</p>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Submit Claim</button>
+    </form>
+  </div>
 
-      <p><strong>Sources:</strong></p>
-      <ul>
-        <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/facts.html" target="_blank">CDC - Vaccine Facts</a></li>
-        <li><a href="https://www.snopes.com/fact-check/vaccine-magnet/" target="_blank">Snopes</a></li>
-      </ul>
-
-      <p><strong>Tags:</strong>
-        <span class="tag">COVID-19</span>
-        <span class="tag">Vaccine</span>
-      </p>
-
-      <!-- Share and Report Buttons -->
-      <div class="actions">
-        <button title="Share Claim">🔗 Share</button>
-      </div>
-
-      <!-- Mark as Reviewed (for moderators) -->
+  <!-- ✅ Confirmation Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <i class="fas fa-check-circle success-icon"></i>
+      <h3>Claim Submitted Successfully!</h3>
+      <p>Your claim has been recorded and will be reviewed shortly.</p>
+    </div>
+  </div>
+   <!-- Mark as Reviewed (for moderators) -->
     </section>
     </main>
   </div>
-
-  <!-- Footer -->
-
   <script>
-  // Dummy data
-  const claimsData = {
+    document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("claimForm");
+  const modal = document.getElementById("successModal");
+  const closeBtn = document.querySelector(".close");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop actual form submit (since no backend yet)
+    
+    // ✅ Show modal
+    modal.style.display = "flex";
+
+    // ✅ Reset form fields
+    form.reset();
+  });
+
+  // Close modal on click X
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close modal if user clicks outside
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+// Dummy data
+const claimsData = {
     Politics: [
       { title: "Election 2025 results disputed", source: "BBC News" },
       { title: "New reforms announced by parliament", source: "Reuters" }
@@ -330,6 +358,6 @@
       });
     });
   });
-  </script> 
+</script>
 </body>
 </html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard - FactCred</title>
+  <link rel="stylesheet" href="/Styles/dashboard.css" />
+  <link rel="icon" href="/images/icon.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+
+    .user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.avatar {
+  width:40px;
+  height: 40px;
+  border-radius: 50%; /* makes it a circle */
+  object-fit: cover;
+  border: 2px solid #000000;
+}
+
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="/images/icon.png" alt="FactCred Logo" />
+        <h4>FactCred</h4>
+      </div>
+
+      
+    </aside>
+
+    <main class="main">
+
+      <section class="left-panel">
+        <div class="search-section">
+          <div class="search-bar">
+            <input type="text" id="search" placeholder="Search claims..." />
+          </div>
+          <div class="filter-buttons">
+            <h3>Filters</h3>
+            <button>All</button>
+            <button class="true">True</button>
+            <button class="false">False</button>
+            <button class="partial">Partially True</button>
+          </div>
+        </div>
+      </section>
+      <section class="middle-panel">
+        <header class="main-header">
+          <div class="logo">
+            <img src="/images/icon.png" alt="FactCred Logo" class="logo-img">
+            <span>FactCred</span>
+          </div>
+          <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="submit.html"><i class="fas fa-plus-circle"></i> Submit Claim</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+          </nav>
+    
+          <div class="user-info">
+            <!-- Avatar Wrapper -->
+            <div class="avatar-wrapper">
+              <img src="/images/Screenshot from 2024-09-10 20-44-44.png" alt="User Avatar" class="avatar" id="user-avatar">
+          
+              <!-- Hidden File Input -->
+              <input type="file" id="upload-avatar" accept="image/*" style="display:none;" />
+              <label for="upload-avatar" class="edit-avatar"></label>
+            </div>
+          
+            <!-- Welcome Text -->
+            <div>
+              <p>Welcome, Daniel</p>
+            </div>
+          </div>
+        </header>
+
+        
+      </section>
+
+      <section class="right-panel">
+        <h3>Trending Gist</h3>
+        <div id="claim-details">
+          <div class="claim-preview">
+            <h4 id="claim-title">Breaking Stories</h4>
+            
+            <div class="news-stories">
+              <article class="news-item">
+                <h5 class="news-headline">⚽ Morocco Qualifies for 2026 FIFA World Cup</h5>
+                <p class="news-snippet">The Atlas Lions sealed qualification after a 2-0 win against Ivory Coast in Rabat.</p>
+                <a href="#">Read more</a>
+              </article>
+      
+              <article class="news-item">
+                <h5 class="news-headline">🏃 World Athletics Tokyo 2025: Africans Shine</h5>
+                <p class="news-snippet">Kenya, Ethiopia, and Nigeria made headlines with multiple podium finishes on Day 1.</p>
+                <a href="#">Read more</a>
+              </article>
+      
+              <article class="news-item">
+                <h5 class="news-headline">🌍 African Union Summit 2025 Opens in Addis Ababa</h5>
+                <p class="news-snippet">Leaders discuss regional security, trade, and climate resilience strategies.</p>
+                <a href="#">Read more</a>
+              </article>
+      
+              <article class="news-item">
+                <h5 class="news-headline">🎶 Burna Boy Drops New Album</h5>
+                <p class="news-snippet">Fans across the globe celebrate the release of his highly anticipated Afro-fusion record.</p>
+                <a href="#">Read more</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+              </main>
+             
+          </div>
+        </section>
+  
+    </main>
+  
+
+    <!-- Main Content -->
+  
+</body>
+</html>

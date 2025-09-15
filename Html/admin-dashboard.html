@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - FactCred</title>
+  <link rel="stylesheet" href="styles/dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f4f6f9; }
+    header { background:#222; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
+    header h2 { margin:0; }
+    .container { display:flex; }
+    aside { width:250px; background:#111; color:white; height:100vh; padding:20px; }
+    aside ul { list-style:none; padding:0; }
+    aside li { padding:10px; margin-bottom:10px; cursor:pointer; border-radius:6px; }
+    aside li:hover { background:#333; }
+    main { flex:1; padding:20px; }
+    .dashboard-cards { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
+    .card { background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+    table { width:100%; border-collapse:collapse; margin-top:20px; }
+    table th, table td { border:1px solid #ddd; padding:10px; text-align:left; }
+    table th { background:#f4f4f4; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>🛡 Admin Dashboard</h2>
+    <div>Logged in as <strong>Admin</strong></div>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside>
+      <ul>
+        <li><i class="fas fa-users"></i> Manage Users</li>
+        <li><i class="fas fa-check-circle"></i> Review Claims</li>
+        <li><i class="fas fa-chart-bar"></i> Analytics</li>
+        <li><i class="fas fa-cog"></i> System Settings</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <div class="dashboard-cards">
+        <div class="card"><h3>Total Claims</h3><p>120</p></div>
+        <div class="card"><h3>Verified Claims</h3><p>80</p></div>
+        <div class="card"><h3>Pending Claims</h3><p>40</p></div>
+      </div>
+
+      <div class="card">
+        <h3>🚨 Flagged Claims</h3>
+        <table>
+          <tr><th>Claim</th><th>Submitted By</th><th>Action</th></tr>
+          <tr><td>5G spreads COVID</td><td>User123</td><td><button>Review</button></td></tr>
+          <tr><td>Election rigged in 2025</td><td>User456</td><td><button>Review</button></td></tr>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
