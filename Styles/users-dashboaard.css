@@ -1,0 +1,284 @@
+/* 🔹 Quick Actions */
+.quick-actions {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .action-btn {
+    padding: 6px 12px;  /* smaller padding */
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(#4CAF50, #388E3C);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px #2e7d32;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;   /* keeps button compact */
+    margin: 5px;             /* spacing between buttons */
+  }
+  
+  /* Hover effect */
+  .action-btn:hover {
+    background: linear-gradient(#43a047, #2e7d32);
+  }
+  
+  /* Pressed effect */
+  .action-btn:active {
+    box-shadow: 0 2px #1b5e20;
+    transform: translateY(2px);
+  }
+  
+  
+  /* 🔹 User Activity */
+
+  .user-activity {
+    background: rgba(255, 255, 255, 0.2);   /* glassy effect */
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    margin: 15px auto;   /* center it */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* stronger 3D look */
+    max-width: 600px;   /* limit width */
+    width: 90%;         /* responsive, shrinks on mobile */
+  }  
+
+.user-activity h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.user-activity ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-activity li {
+  margin: 6px 0;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.25); /* semi-transparent for glass */
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.1); /* soft shadow for text */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover for a clickable feel */
+.user-activity li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+.status {
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.status.pending {
+  color: #ff9800;
+}
+
+.status.approved {
+  color: #4CAF50;
+}
+
+.status.comment {
+  color: #2196F3;
+}
+
+.view-all {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 600;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.view-all:hover {
+  color: #388e3c;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+  
+  /* 🔹 Recommendations */
+.recommendations {
+  margin: 15px auto;
+  max-width: 500px;   /* keeps it short */
+  width: 100%;         /* responsive */
+}
+
+.recommendations h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* subtle shadow */
+}
+
+.recommend-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.15);   /* glass effect */
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* 3D shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recommend-card:hover {
+  transform: translateY(-3px);  /* lift effect */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.recommend-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2); /* 3D look for image */
+}
+
+.recommend-card p {
+  font-size: 13px;
+  margin: 0;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.15); /* shadowed text */
+}
+
+  
+.user-stats {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0;
+  justify-content: center; /* keep them centered */
+  flex-wrap: wrap; /* wrap if screen is small */
+}
+
+.stat-card {
+  width: 200px;         /* fixed small width */
+  height: 110px;        /* fixed height */
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15); /* glassy effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.stat-card h4 {
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* subtle depth */
+}
+
+.stat-card p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 
+               0 0 6px rgba(255, 255, 255, 0.3); /* 3D glow */
+}.stat-card h4 {
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* subtle depth */
+}
+
+.stat-card p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 
+               0 0 6px rgba(255, 255, 255, 0.3); /* 3D glow */
+}
+
+/* 🎨 Different colors */
+.stat-card:nth-child(1) {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.stat-card:nth-child(2) {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.stat-card:nth-child(3) {
+  background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.stat-card:nth-child(4) {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+
+  
+  /* 🔹 News & Updates */
+  .news-updates {
+    max-width: 750px;
+    min-height: 10px;   /* ⬅️ sets a taller baseline */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    padding: 16px 20px;  /* ⬅️ a bit more breathing room */
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    margin: 15px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  
+  .news-updates:hover {
+    transform: translateY(-4px); /* lift up on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  
+  .news-updates h3 {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #1929b4;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    letter-spacing: 0.5px;
+  }
+  
+  
+  .news-updates ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .news-updates li {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #eeeeee;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 1px 1px 3px rgba(255,255,255,0.2),
+                inset -1px -1px 3px rgba(0,0,0,0.2);
+    transition: background 0.3s ease;
+  }
+  
+  .news-updates li:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }  
