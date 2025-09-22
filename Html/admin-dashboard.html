@@ -8,19 +8,96 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body { font-family: Arial, sans-serif; margin:0; background:#f4f6f9; }
-    header { background:#222; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
+    header { background:#1a1a2e;; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
     header h2 { margin:0; }
     .container { display:flex; }
-    aside { width:250px; background:#111; color:white; height:100vh; padding:20px; }
+    aside { width:150px; background:#1a1a2e; color:white; height:100vh; padding:15px; }
     aside ul { list-style:none; padding:0; }
     aside li { padding:10px; margin-bottom:10px; cursor:pointer; border-radius:6px; }
     aside li:hover { background:#333; }
     main { flex:1; padding:20px; }
+
+    /* subtle depth 
     .dashboard-cards { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; }
-    .card { background:white; padding:20px; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
-    table { width:100%; border-collapse:collapse; margin-top:20px; }
+    .card { background:white; padding:10px; border-radius:10px; box-shadow:0 2px 4px rgba(0,0,0,0.1); }
+    table { width:100%; border-collapse:collapse; margin-top:50px; }
     table th, table td { border:1px solid #ddd; padding:10px; text-align:left; }
     table th { background:#f4f4f4; }
+    */
+    .dashboard-cards {
+  display: flex;
+  gap: 12px;
+  margin: 15px 0;
+  justify-content: center; /* keep them centered */
+  flex-wrap: wrap; /* wrap if screen is small */
+}
+
+.card {
+  width: 200px;         /* fixed small width */
+  height: 110px;        /* fixed height */
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15); /* glassy effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.card h3 {
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* subtle depth */
+}
+
+.card p {
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 
+               0 0 6px rgba(255, 255, 255, 0.3); /* 3D glow */
+}.card h3 {
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: #eee;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* subtle depth */
+}
+
+.card p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 
+               0 0 6px rgba(255, 255, 255, 0.3); /* 3D glow */
+}
+
+/* 🎨 Different colors */
+.card:nth-child(1) {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.card:nth-child(2) {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.card:nth-child(3) {
+  background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.card:nth-child(4) {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+
+  
   </style>
 </head>
 <body>
@@ -48,7 +125,7 @@
         <div class="card"><h3>Pending Claims</h3><p>40</p></div>
       </div>
 
-      <div class="card">
+      <div class="cardes">
         <h3>🚨 Flagged Claims</h3>
         <table>
           <tr><th>Claim</th><th>Submitted By</th><th>Action</th></tr>

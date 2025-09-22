@@ -1,14 +1,41 @@
 /* 🔹 Quick Actions */
+.quick-actionse {
+  display: flex;
+  flex-direction: column; /* stack buttons vertically */
+  gap: 10px; 
+  margin: 3px;
+}
+
+.quick-actionse .actions-btn {                
+  max-width: 150px;        
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #4caf50, #388e3c);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-actionse .actions-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+
 .quick-actions {
     display: flex;
-    gap: 15px;
+    gap:15px;
     margin: 20px 0;
   }
 
-  .action-btn {
-    padding: 6px 12px;  /* smaller padding */
+  .quick-actions .action-btn { 
+    padding: 5px 10px;  /* smaller padding */
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 200;
     border: none;
     border-radius: 8px;
     background: linear-gradient(#4CAF50, #388E3C);
@@ -29,6 +56,58 @@
   .action-btn:active {
     box-shadow: 0 2px #1b5e20;
     transform: translateY(2px);
+  }
+  
+  .stats {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  .stats h5 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #ddd;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .states-card {
+    background: rgba(255, 255, 255, 0.15); /* glass effect */
+    backdrop-filter: blur(6px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .states-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  }
+  
+  .states-card h4 {
+    font-size: 12px;
+    margin-bottom: 6px;
+    color: #eee;
+  }
+  
+  .states-card p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* 🎨 Different colors for each stat */
+  .states-card:nth-child(2) {
+    background: linear-gradient(135deg, #4facfe, #00f2fe); /* Blue */
+  }
+  .states-card:nth-child(3) {
+    background: linear-gradient(135deg, #43e97b, #38f9d7); /* Green */
+  }
+  .states-card:nth-child(4) {
+    background: linear-gradient(135deg, #fa709a, #fee140); /* Pink/Yellow */
   }
   
   
@@ -195,12 +274,12 @@
 }
 
 .stat-card p {
-  font-size: 16px;
+  font-size: 10px;
   font-weight: bold;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7), 
                0 0 6px rgba(255, 255, 255, 0.3); /* 3D glow */
-}.stat-card h4 {
+}.stat-card h5 {
   font-size: 11px;
   margin-bottom: 4px;
   color: #eee;
@@ -239,10 +318,11 @@
     min-height: 4px;   /* ⬅️ sets a taller baseline */
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
-    padding: 16px 20px;  /* ⬅️ a bit more breathing room */
+    padding: 10px 20px;  /* ⬅️ a bit more breathing room */
     border-radius: 14px;
     box-shadow: 0 6px 14px rgba(0,0,0,0.25);
     margin: 15px 0;
+    margin-left: 30px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   

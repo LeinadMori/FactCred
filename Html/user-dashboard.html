@@ -9,8 +9,8 @@
   <link rel="icon" href="/images/icon.png" type="image/png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-
-    .user-header {
+    
+  .user-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,12 +42,49 @@
         <img src="/images/icon.png" alt="FactCred Logo" />
         <h4>FactCred</h4>
       </div>
+      <nav>
+        <ul id="category-list">
+          <li><i class="fas fa-landmark"></i> Politics</li>
+          <li><i class="fas fa-heartbeat"></i> Health</li>
+          <li><i class="fas fa-microchip"></i> Technology</li>
+          <li><i class="fas fa-graduation-cap"></i> Education</li>
+          <li><i class="fas fa-futbol"></i> Sports</li>
 
+          <div class="claim" data-category="Politics"></div>
+          <div class="claim" data-category="Health"></div>
+          <div class="claim" data-category="Technology"></div>
+          <div class="claim" data-category="Education"></div>
+          <div class="claim" data-category="Sports"></div>
+          <div class="quick-actionse">
+            <button class="actions-btn">+ New Claim</button>
+            <button class="actions-btn">Generate Report</button>
+            <button class="actions-btn">Export Data</button>
+          </div>
+
+          <!-- ⚡ Quick Actions -->
+        
       
+        <!-- 📊 Stats Summary 
+        <div class="stats">
+          <h5>Summary</h5>
+          <div class="states-card">
+            <h4>Total Claims</h4>
+            <p>125</p>
+          </div>
+          <div class="states-card">
+            <h4>Verified</h4>
+            <p>90</p>
+          </div>
+          <div class="states-card">
+            <h4>Pending</h4>
+            <p>35</p>
+          </div>
+        </div>
+
+-->
     </aside>
 
     <main class="main">
-
       <section class="left-panel">
         <div class="search-section">
           <div class="search-bar">
@@ -61,6 +98,7 @@
             <button class="partial">Partially True</button>
           </div>
         </div>
+      
       </section>
       <section class="middle-panel">
         <header class="main-header">
@@ -134,7 +172,7 @@
       <p>7</p>
     </div>
     <div class="stat-card">
-      <h4>Total Votes</h4>
+      <h4>Total Claim</h4>
       <p>45</p>
     </div>
   </section>
