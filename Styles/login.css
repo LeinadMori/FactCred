@@ -29,8 +29,18 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image:linear-gradient var(--log-colour, --seclect-coloue)
-}
+    margin: 0;
+    background: url("/images/stock-photo-man-examining-fake-news-on-newspaper-through-magnifying-glass-1252774627.jpg")
+      no-repeat center center/cover;
+    position: relative;
+  }
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark transparent overlay */
+  }
 
 .container{
     max-width: 70.5rem;
