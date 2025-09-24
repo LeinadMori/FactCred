@@ -1,0 +1,72 @@
+/* Guidelines Box */
+.guidelines-box {
+  background: rgba(219, 7, 7, 0.07); /* frosted-glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-guidelines {
+  background: none;
+  border: none;
+  color: #4caf50; /* green accent */
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.toggle-guidelines:hover {
+  color: #66bb6a; /* slightly lighter green */
+}
+
+.guidelines-content {
+  display: none; /* collapsed by default */
+  margin-top: 0.5rem;
+  font-size: 13px;
+  color: #ddd;
+}
+
+.guidelines-content ul {
+  list-style: none;
+  padding-left: 0;
+  color: #ff5cf1;
+}
+
+.guidelines-content li {
+  margin-bottom: 6px;
+}
+
+/* FAQ Link */
+.faq-box {
+    margin-top: 10px;
+  }
+  
+  .toggle-faq {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #0073e6;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+  
+  .faq-content {
+    display: none; /* Hidden by default */
+    margin-top: 6px;
+    font-size: 13px;
+    color: #ddd;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.05);
+    border-left: 3px solid #0073e6;
+    border-radius: 6px;
+  }  

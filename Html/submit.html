@@ -6,6 +6,7 @@
   <title>Submit - FactCred</title>
   <link rel="icon" href="/images/icon.png" type="image/png" />
   <link rel="stylesheet" href="/Styles/dashboard.css" />
+  <link rel="stylesheet" href="/Styles/submit.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
@@ -97,16 +98,40 @@
             <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
           </nav>
         </header>
+
+        <div class="guidelines-box">
+          <button class="toggle-guidelines">➕ Show Guidelines</button>
+          <div class="guidelines-content">
+            <ul>
+              <li>✅ Be specific (avoid vague wording)</li>
+              <li>✅ Provide sources when possible</li>
+              <li>✅ Stick to verifiable facts</li>
+              <li>✅ Avoid personal opinions or bias</li>
+            </ul>
+          </div>
+        </div>
         <div class="claim-card false">
           <h4>Submit a New Claim</h4>
-              <form class="claim-form">
-                <label for="claim-text">Claim:</label>
-                <textarea id="claim-text" rows="4" required></textarea>
+          <form class="claim-form">
+            <label for="claim-text">Claim:</label>
+            <textarea id="claim-text" rows="4" required></textarea>
           
-                <label for="source">Source URL (optional):</label>
-                <input type="url" id="source" />
+            <label for="source">Source URL (optional):</label>
+            <input type="url" id="source" />
+          
+            <button type="submit">Submit Claim</button>
+          </form>          
               </div>
-
+              <div class="faq-box">
+                <button class="toggle-faq">❓ Need help? See examples</button>
+                <div class="faq-content">
+                  <ul>
+                    <li>Example 1: “The government announced free healthcare in 2025.”</li>
+                    <li>Example 2: “The team won the championship after 10 years.”</li>
+                    <li>Example 3: “This product cures COVID-19” (⚠️ False claim example)</li>
+                  </ul>
+                </div>
+              </div>
               
             </section>
           
@@ -166,6 +191,40 @@
        dropdownContent.style.display = 'none';
      });
    });
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtn = document.querySelector(".toggle-guidelines");
+    const guidelinesContent = document.querySelector(".guidelines-content");
+
+    toggleBtn.addEventListener("click", () => {
+      const isVisible = guidelinesContent.style.display === "block";
+
+      if (isVisible) {
+        guidelinesContent.style.display = "none";
+        toggleBtn.textContent = "➕ Show Guidelines";
+      } else {
+        guidelinesContent.style.display = "block";
+        toggleBtn.textContent = "➖ Hide Guidelines";
+      }
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqBtn = document.querySelector(".toggle-faq");
+    const faqContent = document.querySelector(".faq-content");
+
+    faqBtn.addEventListener("click", () => {
+      const isVisible = faqContent.style.display === "block";
+
+      if (isVisible) {
+        faqContent.style.display = "none";
+        faqBtn.textContent = "❓ Need help? See examples";
+      } else {
+        faqContent.style.display = "block";
+        faqBtn.textContent = "❓ Hide examples";
+      }
+    });
+  });
+</script>
+
  </script>
   
 </body>
