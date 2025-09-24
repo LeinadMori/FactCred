@@ -27,7 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image:linear-gradient var(--log-colour, --seclect-coloue);
+    background: #000;
 }
 
 .container{
