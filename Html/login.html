@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Member Login</h2>
+        <h2>Login</h2>
         <form id="login-form">
             <div class="content">
                 <div class="input-box">
@@ -45,6 +45,39 @@
         </form>
     </div>  
     
-    <script src="js/auth.js"></script> <!-- Include auth.js for authentication logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("login-form");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // 🔹 Mock user data (for testing only)
+    const users = [
+      { email: "admin@example.com", password: "admin123", role: "admin" },
+      { email: "user@example.com", password: "user123", role: "user" }
+    ];
+
+    // Find if user exists
+    const foundUser = users.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (foundUser) {
+      if (foundUser.role === "admin") {
+        window.location.href = "admin-dashboard.html";
+      } else {
+        window.location.href = "user-dashboard.html";
+      }
+    } else {
+      alert("Invalid email or password");
+    }
+  });
+});
+
+    </script> <!-- Include auth.js for authentication logic -->
 </body>
 </html>

@@ -9,33 +9,83 @@
   <link rel="icon" href="/images/icon.png" type="image/png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    
-  .user-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.avatar {
-  width:40px;
-  height: 40px;
-  border-radius: 50%; /* makes it a circle */
-  object-fit: cover;
-  border: 2px solid #000000;
-}
-
+    .user-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #000;
+    }
+  
+    /* --- Modal Styling --- */
+    .modal-overlay {
+      display: none; /* stays hidden until triggered */
+      position: fixed;
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+  
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 70%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+  
+    .modal-close {
+      position: absolute;
+      top: 10px; 
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  
+    .export-btn {
+      margin-top: 15px;
+      padding: 10px 15px;
+      border: none;
+      background: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+  
+    .export-btn:hover {
+      background: #0056b3;
+    }
   </style>
+  
 </head>
 <body>
-  <div class="dashboard">
+  <!-- Dashboard Wrapper -->
+  <div id="dashboard" class="dashboard">
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo">
@@ -50,38 +100,11 @@
           <li><i class="fas fa-graduation-cap"></i> Education</li>
           <li><i class="fas fa-futbol"></i> Sports</li>
 
-          <div class="claim" data-category="Politics"></div>
-          <div class="claim" data-category="Health"></div>
-          <div class="claim" data-category="Technology"></div>
-          <div class="claim" data-category="Education"></div>
-          <div class="claim" data-category="Sports"></div>
           <div class="quick-actionse">
             <button class="actions-btn">+ New Claim</button>
-            <button class="actions-btn">Generate Report</button>
-            <button class="actions-btn">Export Data</button>
+            <button class="actions-btn" id="generateReportBtn">Generate Report</button>
+            <button class="actions-btn" id="exportBtn">Export Data</button>
           </div>
-
-          <!-- ⚡ Quick Actions -->
-        
-      
-        <!-- 📊 Stats Summary 
-        <div class="stats">
-          <h5>Summary</h5>
-          <div class="states-card">
-            <h4>Total Claims</h4>
-            <p>125</p>
-          </div>
-          <div class="states-card">
-            <h4>Verified</h4>
-            <p>90</p>
-          </div>
-          <div class="states-card">
-            <h4>Pending</h4>
-            <p>35</p>
-          </div>
-        </div>
-
--->
     </aside>
 
     <main class="main">
@@ -98,8 +121,8 @@
             <button class="partial">Partially True</button>
           </div>
         </div>
-      
       </section>
+
       <section class="middle-panel">
         <header class="main-header">
           <div class="logo">
@@ -112,79 +135,59 @@
             <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
             <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
           </nav>
-    
           <div class="user-info">
-            <!-- Avatar Wrapper -->
             <div class="avatar-wrapper">
               <img src="/images/Screenshot from 2024-09-10 20-44-44.png" alt="User Avatar" class="avatar" id="user-avatar">
-          
-              <!-- Hidden File Input -->
               <input type="file" id="upload-avatar" accept="image/*" style="display:none;" />
-              <label for="upload-avatar" class="edit-avatar"></label>
             </div>
-          
-            <!-- Welcome Text -->
             <div>
               <p>Welcome, Daniel</p>
             </div>
           </div>
         </header>
 
-          <!-- 🔹 Quick Actions -->
-  <section class="quick-actions">
-    <button class="action-btn">➕ Submit a New Claim</button>
-    <button class="action-btn">⭐ View Bookmarks</button>
-    <button class="action-btn">🔔 Notifications</button>
-  </section>
+        <section class="quick-actions">
+          <button class="action-btn" id="newClaimBtn">➕ Submit a New Claim</button>
+          <button class="action-btn" id="bookmarksBtn">⭐ View Bookmarks</button>
+          <button class="action-btn" id="notificationsBtn">🔔 Notifications</button>
+        </section>
+        
 
-  <!-- 🔹 User Activity -->
-  <section class="user-activity">
-    <h3>Your Activity</h3>
-    <ul>
-      <li>Claim: Nigeria inflation rate report <span class="status pending">⏳ Pending</span></li>
-      <li>Claim: COVID-19 vaccine effectiveness <span class="status approved">✅ Approved</span></li>
-      <li>Commented on: Fuel subsidy removal <span class="status comment">💬</span></li>
-    </ul>
-    <a href="activity.html" class="view-all">View All Activity →</a>
-  </section>
+        <section class="user-activity">
+          <h3>Your Activity</h3>
+          <ul>
+            <li>Claim: Nigeria inflation rate report <span class="status pending">⏳ Pending</span></li>
+            <li>Claim: COVID-19 vaccine effectiveness <span class="status approved">✅ Approved</span></li>
+            <li>Commented on: Fuel subsidy removal <span class="status comment">💬</span></li>
+          </ul>
+          <a href="activity.html" class="view-all">View All Activity →</a>
+        </section>
 
-  <!-- 🔹 Recommendations -->
-  <section class="recommendations">
-    <h3>Recommended for You</h3>
-    <div class="recommend-card">
-      <img src="/images/download (1).jpeg" alt="Trending Claim">
-      <p>AI is replacing jobs faster than expected <a href="#">Read more</a></p>
-    </div>
-    <div class="recommend-card">
-      <img src="/images/download (3).jpeg" alt="Trending Claim">
-      <p>New policies on climate change <a href="#">Read more</a></p>
-    </div>
-  </section>
+        <section class="recommendations">
+          <h3>Recommended for You</h3>
+          <div class="recommend-card">
+            <img src="/images/download (1).jpeg" alt="Trending Claim">
+            <p>AI is replacing jobs faster than expected <a href="#">Read more</a></p>
+          </div>
+          <div class="recommend-card">
+            <img src="/images/download (3).jpeg" alt="Trending Claim">
+            <p>New policies on climate change <a href="#">Read more</a></p>
+          </div>
+        </section>
 
-  <!-- 🔹 User Stats -->
-  <section class="user-stats">
-    <div class="stat-card">
-      <h4>Claims Submitted</h4>
-      <p>12</p>
-    </div>
-    <div class="stat-card">
-      <h4>Claims Verified</h4>
-      <p>7</p>
-    </div>
-    <div class="stat-card">
-      <h4>Total Claim</h4>
-      <p>45</p>
-    </div>
-  </section>
+        <section class="user-stats">
+          <div class="stat-card"><h4>Claims Submitted</h4><p>12</p></div>
+          <div class="stat-card"><h4>Claims Verified</h4><p>7</p></div>
+          <div class="stat-card"><h4>Total Claim</h4><p>45</p></div>
+        </section>
 
-  <!-- 🔹 News & Updates -->
-  <section class="news-updates">
-    <h3>Platform Updates</h3>
-    <ul>
-      <li>✨ New Feature: Bookmark claims now available!</li>
-      <li>📢 Community guidelines updated (Sept 2025).</li>
-    </ul>
-  </section>
+        <section class="news-updates">
+          <h3>Platform Updates</h3>
+          <ul>
+            <li>✨ New Feature: Bookmark claims now available!</li>
+            <li>📢 Community guidelines updated (Sept 2025).</li>
+          </ul>
+        </section>
       </section>
 
       <section class="right-panel">
@@ -192,44 +195,119 @@
         <div id="claim-details">
           <div class="claim-preview">
             <h4 id="claim-title">Breaking Stories</h4>
-            
             <div class="news-stories">
-              <article class="news-item">
-                <h5 class="news-headline">⚽ Morocco Qualifies for 2026 FIFA World Cup</h5>
-                <p class="news-snippet">The Atlas Lions sealed qualification after a 2-0 win against Ivory Coast in Rabat.</p>
-                <a href="#">Read more</a>
-              </article>
-      
-              <article class="news-item">
-                <h5 class="news-headline">🏃 World Athletics Tokyo 2025: Africans Shine</h5>
-                <p class="news-snippet">Kenya, Ethiopia, and Nigeria made headlines with multiple podium finishes on Day 1.</p>
-                <a href="#">Read more</a>
-              </article>
-      
-              <article class="news-item">
-                <h5 class="news-headline">🌍 African Union Summit 2025 Opens in Addis Ababa</h5>
-                <p class="news-snippet">Leaders discuss regional security, trade, and climate resilience strategies.</p>
-                <a href="#">Read more</a>
-              </article>
-      
-              <article class="news-item">
-                <h5 class="news-headline">🎶 Burna Boy Drops New Album</h5>
-                <p class="news-snippet">Fans across the globe celebrate the release of his highly anticipated Afro-fusion record.</p>
-                <a href="#">Read more</a>
-              </article>
+              <article class="news-item"><h5 class="news-headline">⚽ Morocco Qualifies for 2026 FIFA World Cup</h5><p>The Atlas Lions sealed qualification after a 2-0 win against Ivory Coast in Rabat.</p></article>
+              <article class="news-item"><h5 class="news-headline">🏃 World Athletics Tokyo 2025: Africans Shine</h5><p>Kenya, Ethiopia, and Nigeria made headlines with multiple podium finishes on Day 1.</p></article>
+              <article class="news-item"><h5 class="news-headline">🌍 African Union Summit 2025 Opens in Addis Ababa</h5><p>Leaders discuss regional security, trade, and climate resilience strategies.</p></article>
+              <article class="news-item"><h5 class="news-headline">🎶 Burna Boy Drops New Album</h5><p>Fans celebrate the release of his highly anticipated Afro-fusion record.</p></article>
             </div>
           </div>
         </div>
       </section>
-              </main>
-             
-          </div>
-        </section>
-  
     </main>
-  
+  </div>
 
-    <!-- Main Content -->
-  
+  <!-- Report Modal -->
+  <div id="reportModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="closeReport">&times;</button>
+      <h2>Claims Report</h2>
+      <p><strong>Total Claims:</strong> <span id="totalClaims">0</span></p>
+      <p><strong>Approved:</strong> <span id="approvedClaims">0</span></p>
+      <p><strong>Pending:</strong> <span id="pendingClaims">0</span></p>
+      <p><strong>Rejected:</strong> <span id="rejectedClaims">0</span></p>
+      
+      <h3>Claims Breakdown</h3>
+      <table border="1" cellpadding="5" cellspacing="0" style="width:100%">
+        <thead>
+          <tr><th>ID</th><th>Date</th><th>Status</th><th>Amount ($)</th></tr>
+        </thead>
+        <tbody id="claimsTable"></tbody>
+      </table>
+
+      <button class="export-btn" id="exportReportBtn">📥 Export Report as CSV</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const claims = [
+      { id: 1, date: "2025-09-01", status: "Approved", amount: 250 },
+      { id: 2, date: "2025-09-05", status: "Pending", amount: 120 },
+      { id: 3, date: "2025-09-07", status: "Rejected", amount: 300 },
+      { id: 4, date: "2025-09-10", status: "Approved", amount: 500 }
+    ];
+
+    const dashboard = document.getElementById("dashboard");
+    const modal = document.getElementById("reportModal");
+    const generateReportBtn = document.getElementById("generateReportBtn");
+    const closeReportBtn = document.getElementById("closeReport");
+    const claimsTable = document.getElementById("claimsTable");
+    const exportReportBtn = document.getElementById("exportReportBtn");
+
+    // Generate Report
+    generateReportBtn.addEventListener("click", () => {
+      document.getElementById("totalClaims").textContent = claims.length;
+      document.getElementById("approvedClaims").textContent = claims.filter(c => c.status === "Approved").length;
+      document.getElementById("pendingClaims").textContent = claims.filter(c => c.status === "Pending").length;
+      document.getElementById("rejectedClaims").textContent = claims.filter(c => c.status === "Rejected").length;
+
+      claimsTable.innerHTML = claims.map(c => `
+        <tr><td>${c.id}</td><td>${c.date}</td><td>${c.status}</td><td>${c.amount}</td></tr>
+      `).join("");
+
+      dashboard.style.display = "none";
+      modal.style.display = "flex";
+    });
+
+    // Close Modal
+    closeReportBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      dashboard.style.display = "block";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        dashboard.style.display = "block";
+      }
+    });
+
+    // Export CSV function
+    function convertToCSV(data) {
+      const headers = Object.keys(data[0]).join(",");
+      const rows = data.map(obj => Object.values(obj).join(","));
+      return [headers, ...rows].join("\n");
+    }
+
+    function downloadCSV(data, filename = "claims_report.csv") {
+      const csv = convertToCSV(data);
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    exportReportBtn.addEventListener("click", () => {
+      downloadCSV(claims, "claims_report.csv");
+    });
+
+
+    document.getElementById("newClaimBtn").addEventListener("click", () => {
+    alert("Open New Claim Form (future modal)");
+  });
+
+  document.getElementById("bookmarksBtn").addEventListener("click", () => {
+    alert("Show Bookmarked Claims (dummy data for now)");
+  });
+
+  document.getElementById("notificationsBtn").addEventListener("click", () => {
+    alert("Display Notifications (dummy list for now)");
+  });
+  </script>
 </body>
 </html>

@@ -101,7 +101,7 @@
 
         <div class="guidelines-box">
           <button class="toggle-guidelines">➕ Show Guidelines</button>
-          <div class="guidelines-content">
+          <div class="guidelines-content" style="display: none;">
             <ul>
               <li>✅ Be specific (avoid vague wording)</li>
               <li>✅ Provide sources when possible</li>
@@ -110,29 +110,50 @@
             </ul>
           </div>
         </div>
-        <div class="claim-card false">
-          <h4>Submit a New Claim</h4>
+        
+        <div class="claim-card">
+          <h4>Submit A New Claim</h4>
           <form class="claim-form">
             <label for="claim-text">Claim:</label>
             <textarea id="claim-text" rows="4" required></textarea>
           
-            <label for="source">Source URL (optional):</label>
+            <label for="source">Source URL:</label>
             <input type="url" id="source" />
           
             <button type="submit">Submit Claim</button>
-          </form>          
-              </div>
-              <div class="faq-box">
-                <button class="toggle-faq">❓ Need help? See examples</button>
-                <div class="faq-content">
-                  <ul>
-                    <li>Example 1: “The government announced free healthcare in 2025.”</li>
-                    <li>Example 2: “The team won the championship after 10 years.”</li>
-                    <li>Example 3: “This product cures COVID-19” (⚠️ False claim example)</li>
-                  </ul>
-                </div>
-              </div>
-              
+          </form>
+        </div>
+        
+        <div class="faq-box">
+          <button class="toggle-faq">❓ Show FAQs</button>
+          <div class="faq-content" style="display: none;">
+            <ul>
+              <li><strong>What is a claim?</strong> → A statement that can be fact-checked.</li>
+              <li><strong>Can I submit opinions?</strong> → No, stick to verifiable facts.</li>
+              <li><strong>Do I need to add a source?</strong> → Not mandatory, but highly recommended.</li>
+              <li><strong>What happens after submission?</strong> → Our team reviews and publishes with status.</li>
+              <li><strong>Can I edit my claim after submission?</strong> → No, but you can submit a corrected version.</li>
+              <li><strong>How long does review take?</strong> → Usually within 24–48 hours.</li>
+              <li><strong>What kind of claims are not allowed?</strong> → Offensive, hateful, or non-verifiable statements.</li>
+              <li><strong>Do I need to create an account?</strong> → Yes, for tracking your submissions.</li>
+              <li><strong>Will my name appear publicly?</strong> → No, unless you choose to share it.</li>
+              <li><strong>Can I submit claims in other languages?</strong> → Yes, we accept claims in multiple languages.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="review-timeline">
+          <h4>📌 Review Process</h4>
+          <div class="steps">
+            <span>✅ Submit</span> →
+            <span>🕒 Review (24–48 hrs)</span> →
+            <span>📢 Published with status</span>
+          </div>
+        </div>
+        
+        <div class="trust-note">
+          <p>🔍 <strong>FactCred values transparency:</strong> All claims are reviewed by independent fact-checkers to ensure accuracy.</p>
+        </div>        
             </section>
           
               <section class="right-panel">
@@ -216,13 +237,14 @@
 
       if (isVisible) {
         faqContent.style.display = "none";
-        faqBtn.textContent = "❓ Need help? See examples";
+        faqBtn.textContent = "❓ Frequently Asked Questions";
       } else {
         faqContent.style.display = "block";
         faqBtn.textContent = "❓ Hide examples";
       }
     });
   });
+  
 </script>
 
  </script>
