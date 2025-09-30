@@ -151,6 +151,13 @@
           <button class="action-btn" id="bookmarksBtn">⭐ View Bookmarks</button>
           <button class="action-btn" id="notificationsBtn">🔔 Notifications</button>
         </section>
+
+        <section class="fact-checker">
+          <h3>AI Fact-Checker</h3>
+          <textarea id="factInput" placeholder="Paste a statement to check..." rows="3"></textarea>
+          <button id="checkFactBtn">Check Fact</button>
+          <div id="factResult"></div>
+        </section>
         
 
         <section class="user-activity">
@@ -307,6 +314,32 @@
 
   document.getElementById("notificationsBtn").addEventListener("click", () => {
     alert("Display Notifications (dummy list for now)");
+  });
+  const checkFactBtn = document.getElementById("checkFactBtn");
+  const factInput = document.getElementById("factInput");
+  const factResult = document.getElementById("factResult");
+
+  checkFactBtn.addEventListener("click", () => {
+    const text = factInput.value.trim();
+
+    if (!text) {
+      factResult.textContent = "⚠️ Please enter a statement to check.";
+      factResult.style.color = "red";
+      return;
+    }
+
+    // Dummy logic for now
+    const random = Math.random();
+    if (random < 0.33) {
+      factResult.textContent = "✅ Likely True";
+      factResult.style.color = "green";
+    } else if (random < 0.66) {
+      factResult.textContent = "❌ Likely False";
+      factResult.style.color = "red";
+    } else {
+      factResult.textContent = "⚖️ Partially True";
+      factResult.style.color = "orange";
+    }
   });
   </script>
 </body>

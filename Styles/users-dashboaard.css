@@ -363,4 +363,43 @@
   
   .news-updates li:hover {
     background: rgba(255, 255, 255, 0.2);
-  }  
+  }
+
+  .fact-checker {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .fact-checker textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-size: 14px;
+  }
+  
+  .fact-checker button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: none;
+    background: #007bff;
+    color: rgb(235, 127, 229);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .fact-checker button:hover {
+    background: #0056b3;
+  }
+  
+  #factResult {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  
