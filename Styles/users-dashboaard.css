@@ -370,8 +370,18 @@
     padding: 15px;
     background: #f9f9f9;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd00;
   }
+
+  .fact-checker h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 10px;
+    padding-left: 8px;
+    letter-spacing: 0.5px;
+  }
+  
   
   .fact-checker textarea {
     width: 100%;
